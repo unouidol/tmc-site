@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A lightweight Twitch client for live streams, chat, multi-account use, and manual Pokémon Community Game companion tools."
+    />
+    <meta name="theme-color" content="#fff8ed" />
+    <title>Twitch Mini Chat</title>
+    <link rel="icon" href="tmc-icon.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="Twitch Mini Chat home">
+          <img src="tmc-icon.png" alt="" width="48" height="48" />
+          <span>Twitch Mini Chat</span>
+        </a>
+        <nav class="header-actions" aria-label="Primary navigation">
+          <a class="header-guide-link" href="#pcg-guide">PCG guide</a>
+          <a class="header-link" href="#downloads">Downloads</a>
+        </nav>
+      </header>
+
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow">Twitch Mini Chat · TMC</p>
+          <h1>
+            Twitch client,
+            <span> made lighter.</span>
+          </h1>
+          <p class="hero-description">
+            Stay close to your favorite channels with live video, chat, and
+            manual companion tools designed for Pokémon Community Game.
+          </p>
+          <a
+            class="primary-action"
+            href="https://github.com/unouidol/TwitchMiniChat/releases/latest/download/TwitchMiniChat-Android-arm64-v8a.apk"
+          >
+            Download for Android
+            <span aria-hidden="true">↗</span>
+          </a>
+
+          <aside class="visual-guide-card" id="visual-guide" aria-label="TMC visual user guide">
+            <div>
+              <p class="visual-guide-title">New to TMC?</p>
+              <p class="visual-guide-copy">
+                Download the illustrated 12-page guide for account setup,
+                Twitch chat, PCG tools, Smart Catch, alerts, and Most Wanted.
+              </p>
+            </div>
+            <a
+              class="guide-download-button"
+              href="downloads/TMC-Visual-Guide.pdf"
+              download
+            >
+              Download visual guide (PDF)
+              <span aria-hidden="true">↓</span>
+            </a>
+          </aside>
+
+          <p class="hero-download-note">Version <span data-tmc-version>5.5.0</span> · Android 8.0 or later</p>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="icon-card">
+            <img src="tmc-icon.png" alt="" width="420" height="420" />
+          </div>
+          <div class="feature-pill feature-pill-chat">Live chat</div>
+          <div class="feature-pill feature-pill-video">Live video</div>
+          <div class="feature-pill feature-pill-pcg">PCG companion</div>
+        </div>
+      </section>
+
+      <section class="feature-strip" aria-label="Main features">
+        <article>
+          <span aria-hidden="true">●</span>
+          <div>
+            <h2>Chat that stays close</h2>
+            <p>A compact experience for following communities and channels.</p>
+          </div>
+        </article>
+        <article>
+          <span aria-hidden="true">▶</span>
+          <div>
+            <h2>Watch live, stay light</h2>
+            <p>Follow live streams without the weight of a full browser setup.</p>
+          </div>
+        </article>
+        <article>
+          <span aria-hidden="true">✦</span>
+          <div>
+            <h2>Play manually, faster</h2>
+            <p>
+              Quick chat shortcuts and helpful PCG information—always
+              user-triggered.
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <section class="pcg-guide" id="pcg-guide">
+        <div class="section-heading guide-heading">
+          <p class="eyebrow">PCG for beginners</p>
+          <h2>Catch, collect, and play through Twitch chat.</h2>
+          <p>
+            Pokémon Community Game (PCG) is a free Twitch extension. Sign in
+            once and your collection follows you across participating Twitch
+            channels.
+          </p>
+        </div>
+
+        <div class="guide-grid">
+          <article class="guide-step">
+            <span class="step-number">01</span>
+            <h3>Open PCG</h3>
+            <p>
+              Join a channel with PCG enabled, open the extension, and sign in
+              with your Twitch account.
+            </p>
+          </article>
+          <article class="guide-step">
+            <span class="step-number">02</span>
+            <h3>Watch for a spawn</h3>
+            <p>
+              The PCG bot announces a wild Pokémon in chat. You have a limited
+              time to decide whether to try catching it.
+            </p>
+          </article>
+          <article class="guide-step">
+            <span class="step-number">03</span>
+            <h3>Choose one Poké Ball</h3>
+            <p>
+              Send <code>!pokecatch</code> or
+              <code>!pokecatch &lt;ball&gt;</code> once through chat. Different
+              balls suit different Pokémon, and every catch is chance-based.
+            </p>
+          </article>
+          <article class="guide-step">
+            <span class="step-number">04</span>
+            <h3>Grow your collection</h3>
+            <p>
+              Successful catches join your collection and advance your
+              Pokédex. Open the extension to review Pokémon, items, and other
+              PCG activities.
+            </p>
+          </article>
+        </div>
+
+        <aside class="tmc-helper" aria-label="How TMC helps with PCG">
+          <div>
+            <p class="eyebrow">How TMC helps</p>
+            <h3>Your manual PCG companion on Android.</h3>
+          </div>
+          <ul>
+            <li>Keep Twitch chat and the PCG extension together in one app.</li>
+            <li>
+              Update your ball inventory and missing Pokédex entries from the
+              dedicated buttons while PCG is loaded.
+            </li>
+            <li>
+              Let Smart Catch Helper suggest suitable balls available in your
+              inventory for the active spawn.
+            </li>
+            <li>
+              Use missing-Dex and Most Wanted alerts to notice the Pokémon that
+              matter most to you.
+            </li>
+          </ul>
+          <p class="manual-note">
+            TMC never catches automatically: every chat command or gameplay
+            action must be triggered by you, one tap at a time.
+          </p>
+        </aside>
+      </section>
+
+      <section class="downloads" id="downloads">
+        <div class="section-heading">
+          <p class="eyebrow">Download now</p>
+          <h2>One home for every TMC download.</h2>
+          <p>
+            TMC <span data-tmc-version>5.5.0</span> is available for Android. The Windows version is still in
+            development.
+          </p>
+        </div>
+
+        <div class="download-grid">
+          <article class="download-card android-card">
+            <div class="platform-icon" aria-hidden="true">A</div>
+            <div class="card-copy">
+              <p class="platform">Android</p>
+              <h3>TMC Android</h3>
+              <p>
+                An alternative, lightweight Twitch client with multi-account
+                support for Twitch and the PCG extension.
+              </p>
+              <p class="companion-copy">
+                Its PCG companion suggests suitable Poké Balls with Smart Catch
+                Helper, supports manual quick-chat presets, and offers
+                missing-Dex and Most Wanted spawn alerts.
+              </p>
+            </div>
+            <div class="download-actions">
+              <a
+                class="download-button"
+                href="https://github.com/unouidol/TwitchMiniChat/releases/latest/download/TwitchMiniChat-Android-arm64-v8a.apk"
+              >
+                Download for Android
+                <span aria-hidden="true">↓</span>
+              </a>
+              <div class="download-links">
+                <a
+                  href="https://github.com/unouidol/TwitchMiniChat/releases/latest/download/TwitchMiniChat-Android-armeabi-v7a.apk"
+                >
+                  32-bit compatibility APK
+                </a>
+                <a
+                  href="https://github.com/unouidol/TwitchMiniChat/releases/latest"
+                >
+                  Release notes &amp; checksums
+                </a>
+              </div>
+              <p class="download-meta">
+                Version <span data-tmc-version>5.5.0</span> · Android 8.0+ · Hosted on GitHub
+              </p>
+            </div>
+          </article>
+
+          <article class="download-card desktop-card">
+            <div class="platform-icon" aria-hidden="true">W</div>
+            <div class="card-copy">
+              <p class="platform">Windows</p>
+              <h3>TMC Desktop</h3>
+              <p>
+                A compact, cross-platform Twitch client with multi-account
+                support for both Twitch and PCG.
+              </p>
+              <p class="companion-copy">
+                Desktop features are still a work in progress ahead of the
+                first public release.
+              </p>
+            </div>
+            <span class="status-chip">Coming soon</span>
+          </article>
+        </div>
+      </section>
+
+      <footer>
+        <div class="brand footer-brand">
+          <img src="tmc-icon.png" alt="" width="40" height="40" />
+          <span>Twitch Mini Chat</span>
+        </div>
+        <p>
+          TMC is an independent client and is not affiliated with Twitch or
+          Pokémon Community Game.
+        </p>
+      </footer>
+    </main>
+    <script>
+      /*
+       * Keeps every version label in sync with the latest published GitHub
+       * release, so the site needs no redeploy when a new version ships.
+       * The value written in the HTML stays as a fallback: if the request
+       * fails, or scripting/storage is unavailable, the page still shows a
+       * sensible version instead of nothing.
+       */
+      (function () {
+        function apply(version) {
+          document.querySelectorAll("[data-tmc-version]").forEach(function (el) {
+            el.textContent = version;
+          });
+        }
+
+        try {
+          var cached = sessionStorage.getItem("tmc-version");
+          if (cached) apply(cached);
+        } catch (e) {}
+
+        fetch("https://api.github.com/repos/unouidol/TwitchMiniChat/releases/latest", {
+          headers: { Accept: "application/vnd.github+json" }
+        })
+          .then(function (response) {
+            if (!response.ok) throw new Error(response.status);
+            return response.json();
+          })
+          .then(function (data) {
+            var version = String(data.tag_name || "").replace(/^v/, "").trim();
+            if (!version) return;
+            apply(version);
+            try {
+              sessionStorage.setItem("tmc-version", version);
+            } catch (e) {}
+          })
+          .catch(function () {
+            /* keep the version written in the HTML */
+          });
+      })();
+    </script>
+  </body>
+</html>
