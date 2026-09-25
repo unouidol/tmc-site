@@ -1,0 +1,11 @@
+# The deployed bytes are these files, so the checkout must not change them.
+# This repository replaces a zip uploaded by hand, and its text files are
+# stored with LF: without these rules a Windows checkout writes them back with
+# CRLF, and a zip made from that checkout would no longer match what is live.
+*.html text eol=lf
+*.css  text eol=lf
+*.md   text eol=lf
+
+# Never touched, whatever the platform.
+*.png binary
+*.pdf binary
