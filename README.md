@@ -7,6 +7,21 @@ The page is static. Version number and download links are not written here by ha
 and fills every `data-tmc-version` element with its tag. The download buttons point at
 `releases/latest/download/<asset>`, so they follow the newest release on their own.
 
+Windows uses the independent `unouidol/TwitchMiniChatDesktop/releases/latest` API
+and `data-tmc-desktop-version` labels. Only stable, non-draft numeric version tags
+with an uploaded `TMC-desktop-Setup.exe` update that label. The Windows installer,
+release notes and `SHA256SUMS.txt` links use GitHub's permanent `releases/latest`
+routes, so they follow future stable releases even without JavaScript. New desktop
+releases must keep those asset names and include the checksums. The fallback is
+1.1.0; deploy this change only after that release and its assets are public.
+
+The Windows package is unsigned. Its notice stays visible next to the download
+button and does not recommend disabling Windows protections. Revisit that notice
+when signing is introduced. Checksums verify downloaded bytes, not publisher identity.
+
+Run `node --test tests/releases.test.cjs` (Node 24) for isolated platform metadata,
+failure/fallback and permanent-link checks. Tests substitute HTTP and do not query GitHub.
+
 The version printed in the HTML is only the fallback shown before that request answers, or
 when JavaScript is unavailable. It does not update itself: raise it at publication, once the
 GitHub release is out, and not earlier (the owner's ruling of 2026-11-13, recorded in the app

@@ -626,6 +626,15 @@ main {
   font-weight: 750;
 }
 
+.unsigned-notice {
+  margin: 0;
+  border-left: 4px solid var(--red);
+  padding: 10px 14px;
+  background: var(--paper);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
 footer {
   display: flex;
   gap: 28px;

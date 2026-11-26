@@ -184,8 +184,7 @@
           <p class="eyebrow">Download now</p>
           <h2>One home for every TMC download.</h2>
           <p>
-            TMC <span data-tmc-version>5.6.1</span> is available for Android. The Windows version is still in
-            development.
+            Download TMC for Android or Windows. Each platform has its own releases.
           </p>
         </div>
 
@@ -237,15 +236,37 @@
               <p class="platform">Windows</p>
               <h3>TMC Desktop</h3>
               <p>
-                A compact, cross-platform Twitch client with multi-account
-                support for both Twitch and PCG.
+                Twitch chat, live video, and the PCG extension together on Windows,
+                with saved accounts and easy switching.
               </p>
               <p class="companion-copy">
-                Desktop features are still a work in progress ahead of the
-                first public release.
+                Read chat history with Twitch emotes and badges, reply to messages,
+                find mentions, and watch live video inline or in a separate window.
               </p>
             </div>
-            <span class="status-chip">Coming soon</span>
+            <div class="download-actions">
+              <p class="unsigned-notice" id="desktop-signing-notice">
+                <strong>Unsigned Windows package.</strong> Windows may show a security warning
+                or block this app. The publisher is not verified by a code-signing certificate.
+                Check the SHA-256 checksum before installing; checksums do not replace a signature.
+                Do not disable Windows security protections to install TMC.
+              </p>
+              <a
+                class="download-button"
+                href="https://github.com/unouidol/TwitchMiniChatDesktop/releases/latest/download/TMC-desktop-Setup.exe"
+                aria-describedby="desktop-signing-notice"
+              >
+                Download for Windows
+                <span aria-hidden="true">↓</span>
+              </a>
+              <div class="download-links">
+                <a href="https://github.com/unouidol/TwitchMiniChatDesktop/releases/latest">Release notes</a>
+                <a href="https://github.com/unouidol/TwitchMiniChatDesktop/releases/latest/download/SHA256SUMS.txt">SHA-256 checksums</a>
+              </div>
+              <p class="download-meta">
+                Version <span data-tmc-desktop-version>1.1.0</span> · Windows 10/11 x64 · Hosted on GitHub
+              </p>
+            </div>
           </article>
         </div>
       </section>
@@ -298,6 +319,31 @@
           })
           .catch(function () {
             /* keep the version written in the HTML */
+          });
+      })();
+
+      // Independent desktop metadata; fixed latest/download links also work without JavaScript.
+      (function () {
+        fetch("https://api.github.com/repos/unouidol/TwitchMiniChatDesktop/releases/latest", {
+          headers: { Accept: "application/vnd.github+json" },
+          credentials: "omit"
+        })
+          .then(function (response) {
+            if (!response.ok) throw new Error(response.status);
+            return response.json();
+          })
+          .then(function (data) {
+            if (data.draft !== false || data.prerelease !== false) return;
+            if (typeof data.tag_name !== "string" || !/^v?\d+\.\d+\.\d+$/.test(data.tag_name)) return;
+            if (!Array.isArray(data.assets) || !data.assets.some(function (asset) {
+              return asset && asset.name === "TMC-desktop-Setup.exe" && asset.state === "uploaded";
+            })) return;
+            document.querySelectorAll("[data-tmc-desktop-version]").forEach(function (el) {
+              el.textContent = data.tag_name.replace(/^v/, "");
+            });
+          })
+          .catch(function () {
+            // Keep the last published HTML fallback on offline/rate-limited responses.
           });
       })();
     </script>
