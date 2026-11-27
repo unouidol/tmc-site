@@ -6,6 +6,8 @@ const vm = require('node:vm');
 
 const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
 const script = html.match(/<script>([\s\S]*?)<\/script>/)[1];
+// The published fallback label, read from the page so the tests check the real value.
+const fallback = html.match(/<span data-tmc-desktop-version>([^<]+)<\/span>/)[1];
 const stable = {
   tag_name: 'v1.2.0', draft: false, prerelease: false,
   assets: [{ name: 'TMC-desktop-Setup.exe', state: 'uploaded' }],
@@ -13,7 +15,7 @@ const stable = {
 
 async function render(payload = stable, status = 200, storageDenied = false) {
   const android = [{ textContent: '5.6.1' }];
-  const desktop = [{ textContent: '1.1.0' }];
+  const desktop = [{ textContent: fallback }];
   const calls = [];
   const cache = new Map();
   vm.runInNewContext(script, {
@@ -51,14 +53,14 @@ test('invalid/non-stable/incomplete metadata keeps the published fallback', asyn
     { ...stable, assets: null }, null,
   ]) {
     const result = await render(payload);
-    assert.equal(result.desktop, '1.1.0');
+    assert.equal(result.desktop, fallback);
     assert.equal(result.android, '5.7.0');
   }
 });
 
 test('offline/rate-limited desktop request and denied storage do not break download fallbacks', async () => {
-  assert.equal((await render(new Error('offline'))).desktop, '1.1.0');
-  assert.equal((await render(stable, 403)).desktop, '1.1.0');
+  assert.equal((await render(new Error('offline'))).desktop, fallback);
+  assert.equal((await render(stable, 403)).desktop, fallback);
   const result = await render(stable, 200, true);
   assert.equal(result.desktop, '1.2.0');
   assert.equal(result.android, '5.7.0');
