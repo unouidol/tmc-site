@@ -13,7 +13,7 @@ with an uploaded `TMC-desktop-Setup.exe` update that label. The Windows installe
 release notes and `SHA256SUMS.txt` links use GitHub's permanent `releases/latest`
 routes, so they follow future stable releases even without JavaScript. New desktop
 releases must keep those asset names and include the checksums. The fallback is
-1.1.1, raised after that release and its assets were public (2026-11-27).
+1.1.2, raised after that release and its assets were public (2026-11-27).
 
 The Windows package is unsigned. Its notice stays visible next to the download
 button and does not recommend disabling Windows protections. Revisit that notice
